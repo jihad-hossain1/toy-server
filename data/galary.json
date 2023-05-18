@@ -1,0 +1,88 @@
+[
+     {
+      "name": "Jungle Cat",
+      "rating": 4.5,
+      "image": "https://i.ibb.co/hfxCQGB/cat.png",
+      "price": "$31.99",
+      "animalType": "Cat"      
+},
+ {
+      "name": "Cat Explorer",
+      "rating": 4.5,
+      "image": "https://i.ibb.co/5kXQxt6/cat2.png",
+      "price": "$31.99",
+      "animalType": "Cat"      
+},
+ {
+      "name": "Jungle Explorer",
+      "rating": 4.5,
+      "image": "https://i.ibb.co/h9PTYm1/cat3.png",
+      "price": "$32.99",
+      "animalType": "Tiger"      
+},
+ {
+      "name": "Cow Explorer",
+      "rating": 4.5,
+      "image": "https://i.ibb.co/R4P4hq1/cow.png",
+      "price": "$41.99",
+      "animalType": "cow"      
+},
+ {
+      "name": "Cow Toys",
+      "rating": 4.5,
+      "image": "https://i.ibb.co/YX9RtXN/cow2.png",
+      "price": "$51.99",
+      "animalType": "Cow"      
+},
+ {
+      "name": "Dinosors Explorer",
+      "rating": 4.5,
+      "image": "https://i.ibb.co/LnDKkyN/daino.png",
+      "price": "$21.99",
+      "animalType": "Dinosors"      
+},
+ {
+      "name": "Dinosors Explorer",
+      "rating": 4.5,
+      "image": "https://i.ibb.co/JmcK66W/dinos.png",
+      "price": "$34.99",
+      "animalType": "Dinosors"      
+},
+ {
+      "name": "Dog Explorer",
+      "rating": 4.5,
+      "image": "https://i.ibb.co/myphxBG/dog.png",
+      "price": "$35.99",
+      "animalType": "dog"      
+},
+ {
+      "name": "Dragon Explorer",
+      "rating": 4.5,
+      "image": "https://i.ibb.co/CVfT9KP/dragon.png",
+      "price": "$31.99",
+      "animalType": "dragon"      
+},
+ {
+      "name": "Dragon Toys",
+      "rating": 4.5,
+      "image": "https://i.ibb.co/CVfT9KP/dragon.png",
+      "price": "$11.99",
+      "animalType": "dragon"      
+},
+
+ {
+      "name": "Elephent Explorer",
+      "rating": 4.5,
+      "image": "https://i.ibb.co/FXPWgH2/ele.png",
+      "price": "$61.99",
+      "animalType": "Elephent"      
+}
+,
+ {
+      "name": "Dragon Explorer",
+      "rating": 4.5,
+      "image": "https://i.ibb.co/wz8V4Zw/dragon2.png",
+      "price": "$31.99",
+      "animalType": "dragon"      
+}
+]
