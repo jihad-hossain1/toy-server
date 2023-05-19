@@ -30,9 +30,18 @@ async function run() {
 
         //Gallary Toys
         const toyCollection = client.db('animalToyDB').collection('toyGallary')
+        //toys category
+        const allToysCollection = client.db('allToys').collection('allToy')
 
         app.get('/toyGallary', async (req, res) => {
             const result = await toyCollection.find().toArray()
+            res.send(result)
+        })
+
+        // get data from client side
+        app.post('/alltoys', async (req, res) => {
+            const newToys = req.body;
+            const result = await allToysCollection.insertOne(newToys);
             res.send(result)
         })
 
