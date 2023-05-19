@@ -1,34 +1,35 @@
 [
     {
-        "category_id": "1",
-        "name": "All Toys"
-    },
-    {
-        "category_id": "2",
+        "categoryId": "1",
         "name": "Dragon Toys"
     },
     {
-        "category_id": "3",
-        "name": "Cat Toys"
-    },
-    {
-        "category_id": "4",
+        "categoryId": "2",
         "name": "Dog Toys"
     },
     {
-        "category_id": "5",
+        "categoryId": "3",
+        "name": "Cat Toys"
+    },
+    
+    {
+        "categoryId": "4",
         "name": "Elephant Toys"
     },
     {
-        "category_id": "6",
+        "categoryId": "5",
+        "name": "Horse Toys"
+    },
+    {
+        "categoryId": "6",
         "name": "Cow Toys"
     },
     {
-        "category_id": "7",
+        "categoryId": "7",
         "name": "Dinosur Toys"
     },
     {
-        "category_id": "8",
+        "categoryId": "8",
         "name": "Monkey Toys"
     }
 ]

@@ -31,10 +31,24 @@ async function run() {
         //Gallary Toys
         const toyCollection = client.db('animalToyDB').collection('toyGallary')
         //toys category
+        const toyCategoryCollection = client.db('toyCategory').collection('category')
+
+        // allToys
         const allToysCollection = client.db('allToys').collection('allToy')
 
         app.get('/toyGallary', async (req, res) => {
             const result = await toyCollection.find().toArray()
+            res.send(result)
+        })
+        //get toys category
+        app.get('/category', async (req, res) => {
+            const result = await toyCategoryCollection.find().toArray()
+            res.send(result)
+        })
+        // get data from mongodb database
+        app.get('/alltoys', async (req, res) => {
+            const cursor = allToysCollection.find()
+            const result = await cursor.toArray();
             res.send(result)
         })
 
