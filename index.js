@@ -80,21 +80,47 @@ async function run() {
             res.send(result)
         })
         // update a single data by get id
-        app.patch('/usertoy/:id', async (req, res) => {
-            const id = req.params.id
-            const filter = { _id: new ObjectId(id) }
-            const updatedBooking = req.body;
-            const updateDoc = {
-                $set: {
-                    status: updatedBooking.status
-                },
-            };
+        // app.put('/usertoy/:id', async (req, res) => {
+        //     const id = req.params.id
+        //     const filter = { _id: new ObjectId(id) }
+        //     const updatedBooking = req.body;
+        //     const updateDoc = {
+        //         $set: {
+        //             status: updatedBooking.status
+        //         },
+        //     };
 
-            const result = await userCollection.updateOne(filter, updateDoc)
+        //     const result = await userCollection.updateOne(filter, updateDoc)
+        //     res.send(result)
+        //     console.log(updatedBooking);
+
+        // })
+        app.get('/usertoy/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) }
+            const result = await userCollection.findOne(query);
             res.send(result)
-            console.log(updatedBooking);
-
         })
+
+
+        app.put('/usertoy/:id', async (req, res) => {
+            const id = req.params.id;
+            const filter = { _id: new ObjectId(id) };
+            const options = { upsert: true }
+            const updatedtoy = req.body;
+            const toy = {
+                $set: {
+                    toyName: updatedtoy.toyName,
+                    quantity: updatedtoy.quantity,
+                    price: updatedtoy.price,
+                    details: updatedtoy.details,
+                    photoUrl: updatedtoy.photoUrl,
+                }
+            };
+            const result = await userCollection.updateOne(filter, toy, options)
+            res.send(result)
+        })
+
         // get toy by user email
         app.get('/usertoy', async (req, res) => {
             let query = {};
