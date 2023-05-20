@@ -77,6 +77,22 @@ async function run() {
             const result = await allToysCollection.deleteOne(query);
             res.send(result)
         })
+        // update a single data by get id
+        app.patch('/alltoys/:id', async (req, res) => {
+            const id = req.params.id
+            const filter = { _id: new ObjectId(id) }
+            const updatedBooking = req.body;
+            const updateDoc = {
+                $set: {
+                    status: updatedBooking.status
+                },
+            };
+
+            const result = await allToysCollection.updateOne(filter, updateDoc)
+            res.send(result)
+            console.log(updatedBooking);
+
+        })
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
