@@ -37,7 +37,22 @@ async function run() {
         const allToysCollection = client.db('allToys').collection('allToy')
         // toy by user
         const userCollection = client.db('allToys').collection('userToy')
+        app.get('/getToyByText/:id')
 
+        const indexKeys = { toyName: 1, category: 1 };
+        const indexOptions = { category: "titleCategory" };
+        app.get("/getToyByText/:text", async (req, res) => {
+            const text = req.params.text;
+            const result = await userCollection
+                .find({
+                    $or: [
+                        { toyName: { $regex: text, $options: "i" } },
+                        { category: { $regex: text, $options: "i" } },
+                    ],
+                })
+                .toArray();
+            res.send(result);
+        });
         app.get('/toyGallary', async (req, res) => {
             const result = await toyCollection.find().toArray()
             res.send(result)
