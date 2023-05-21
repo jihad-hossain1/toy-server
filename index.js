@@ -53,20 +53,18 @@ async function run() {
                 .toArray();
             res.send(result);
         });
+                 
+
         app.get('/toyGallary', async (req, res) => {
             const result = await toyCollection.find().toArray()
             res.send(result)
         })
         //get toys category
-        app.get('/category', async (req, res) => {
-            const result = await toyCategoryCollection.find().toArray()
-            res.send(result)
-        })
-        // app.get('/category/:id', async (req, res) => {
-        //     const id = req.params.id;
-        //     console.log(id);
+        // app.get('/category', async (req, res) => {
+        //     const result = await toyCategoryCollection.find().toArray()
+        //     res.send(result)
         // })
-        // console.log(allToysCollection);
+       
         // get data from mongodb database
         app.get('/alltoys', async (req, res) => {
             const cursor = allToysCollection.find()
@@ -94,29 +92,13 @@ async function run() {
             const result = await userCollection.deleteOne(query);
             res.send(result)
         })
-        // update a single data by get id
-        // app.put('/usertoy/:id', async (req, res) => {
-        //     const id = req.params.id
-        //     const filter = { _id: new ObjectId(id) }
-        //     const updatedBooking = req.body;
-        //     const updateDoc = {
-        //         $set: {
-        //             status: updatedBooking.status
-        //         },
-        //     };
 
-        //     const result = await userCollection.updateOne(filter, updateDoc)
-        //     res.send(result)
-        //     console.log(updatedBooking);
-
-        // })
         app.get('/usertoy/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: new ObjectId(id) }
             const result = await userCollection.findOne(query);
             res.send(result)
         })
-
 
         app.put('/usertoy/:id', async (req, res) => {
             const id = req.params.id;
@@ -151,6 +133,15 @@ async function run() {
             const result = await userCollection.insertOne(toys);
             res.send(result)
         })
+        app.get("/allToysByCategory/:category", async (req, res) => {
+          console.log(req.params.id);
+          const toys = await userCollection
+            .find({
+              category: req.params.category,
+            })
+            .toArray();
+          res.send(toys);
+        });
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
