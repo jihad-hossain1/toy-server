@@ -25,7 +25,7 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
-        await client.connect();
+        // await client.connect();
 
 
         //Gallary Toys
@@ -53,7 +53,7 @@ async function run() {
                 .toArray();
             res.send(result);
         });
-                 
+
 
         app.get('/toyGallary', async (req, res) => {
             const result = await toyCollection.find().toArray()
@@ -64,7 +64,7 @@ async function run() {
         //     const result = await toyCategoryCollection.find().toArray()
         //     res.send(result)
         // })
-       
+
         // get data from mongodb database
         app.get('/alltoys', async (req, res) => {
             const cursor = allToysCollection.find()
@@ -134,13 +134,13 @@ async function run() {
             res.send(result)
         })
         app.get("/allToysByCategory/:category", async (req, res) => {
-          console.log(req.params.id);
-          const toys = await userCollection
-            .find({
-              category: req.params.category,
-            })
-            .toArray();
-          res.send(toys);
+            console.log(req.params.id);
+            const toys = await userCollection
+                .find({
+                    category: req.params.category,
+                })
+                .toArray();
+            res.send(toys);
         });
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
